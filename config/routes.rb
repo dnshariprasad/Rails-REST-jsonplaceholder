@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   match '/posts/:id' => "post#show", via: [:get]
   match '/posts/:id/comments' => "post#showPostCommentsPath", via: [:get]
   match '/comments' => "post#showPostCommentsQuery", via: [:get]
+  match '/posts' => "post#showUserPosts", via: [:get]
 
 
 

@@ -29,12 +29,17 @@ class PostController < ApplicationController
     end
   end
   def showPostCommentsQuery
-    raw_response = RestClient.get "http://jsonplaceholder.typicode.com/comments?postId=#{params[:postId]}"
+    raw_response = RestClient.get 'http://jsonplaceholder.typicode.com/comments', {:params => {:postId => params[:postId]}}
+
     case raw_response.code
       when 200
         render json: {response: JSON.parse(raw_response)}, status: :ok
       else
         render json: {response: "Unknown Request"}, status: :un_processible_entity
     end
+  end
+
+  def showUserPosts
+
   end
 end

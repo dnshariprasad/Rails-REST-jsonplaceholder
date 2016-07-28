@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'post/index'
 
   match '/posts/:id' => "post#show", via: [:get]
+  match '/posts/:id/comments' => "post#showPostCommentsPath", via: [:get]
+  match '/comments' => "post#showPostCommentsQuery", via: [:get]
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'post/index'
-  match '/posts/:id' => "post#show", via: [:get]
+
   root "post#index"
+
+  get 'post/index'
+
+  match '/posts/:id' => "post#show", via: [:get]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

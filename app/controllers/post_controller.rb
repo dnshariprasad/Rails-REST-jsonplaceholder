@@ -8,4 +8,10 @@ class PostController < ApplicationController
   		render json: {response: "Unknown Request"}, status: :un_processible_entity
   	end
   end
+
+  def show
+  	   raw_response = RestClient.get "http://jsonplaceholder.typicode.com/posts/#{params[:id]}"
+       render json: {response: JSON.parse(raw_response)}, status: :ok
+  end
+
 end
